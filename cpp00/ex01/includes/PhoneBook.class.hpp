@@ -6,7 +6,7 @@
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 01:50:14 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/05 02:08:50 by memilio          ###   ########.fr       */
+/*   Updated: 2020/11/05 15:29:30 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,16 @@
 
 # include "MyAwesomePhoneBook.hpp"
 
-class phoneBook {
-	private:
-		Contact contacts[8];
+class PhoneBook {
 	public:
-					phoneBook (void);
-		Contact&	addContact(void);
-		void		printContacts(void);
+					PhoneBook ();
+		void		addContact();
+		void		serchContact();
+	private:
+		Contact 	contacts[8];
+		int			countContacts;
+		void		printAllContacts();
+		bool		isBookFull();
 };
 
 #endif
