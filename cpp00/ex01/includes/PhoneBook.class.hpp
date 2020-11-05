@@ -6,7 +6,7 @@
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 01:50:14 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/05 15:29:30 by memilio          ###   ########.fr       */
+/*   Updated: 2020/11/05 17:04:10 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@
 
 class PhoneBook {
 	public:
-					PhoneBook ();
-		void		addContact();
-		void		serchContact();
+							PhoneBook ();
+		void				addContact();
+		void				serchContact();
 	private:
-		Contact 	contacts[8];
-		int			countContacts;
-		void		printAllContacts();
-		bool		isBookFull();
+		Contact 			contacts[8];
+		int					countContacts;
+		void				printAllContacts();
+		bool				isBookFull();
+		std::string const&	getShortName(std::string const& str);
 };
 
 #endif

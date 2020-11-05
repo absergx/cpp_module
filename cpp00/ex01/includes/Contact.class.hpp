@@ -6,7 +6,7 @@
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 23:34:07 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/05 15:30:02 by memilio          ###   ########.fr       */
+/*   Updated: 2020/11/05 16:55:22 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class Contact {
 	public:
 							Contact();
+		void				setContact(std::string* const& contact);
 		std::string const&	getFirstName();
 		std::string const&	getLastName();
 		std::string const&	getNickName();
