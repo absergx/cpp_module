@@ -6,7 +6,7 @@
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 02:09:45 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/05 17:37:12 by memilio          ###   ########.fr       */
+/*   Updated: 2020/11/05 17:42:18 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,22 +79,13 @@ void	PhoneBook::serchContact() {
 	}
 }
 
-std::string const&	getShortName(std::string const& str) {
-	if (str.length() <= 10)
-		return str;
-	else {
-		std::string	shortStr = str.substr(0, 9) + '.';
-		return shortStr;
-	}
-}
-
 void	PhoneBook::printAllContacts() {
 	std::cout << ">>>YOUR PHONEBOOK<<<" << std::endl;
 	for (int i = 0; i < this->countContacts; i++) {
 		std::cout << std::setw(10) << i;
-		std::cout << "|" << std::setw(10) << this->getShortName(this->contacts[i].getFirstName());
-		std::cout << "|" << std::setw(10) << this->getShortName(this->contacts[i].getLastName());
-		std::cout << "|" << std::setw(10) << this->getShortName(this->contacts[i].getNickName());
+		std::cout << "|" << std::setw(10) << getShortName(this->contacts[i].getFirstName());
+		std::cout << "|" << std::setw(10) << getShortName(this->contacts[i].getLastName());
+		std::cout << "|" << std::setw(10) << getShortName(this->contacts[i].getNickName());
 	}
 }
 
