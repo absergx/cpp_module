@@ -6,7 +6,7 @@
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 02:09:45 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/05 17:22:11 by memilio          ###   ########.fr       */
+/*   Updated: 2020/11/05 17:37:12 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,9 @@ void	PhoneBook::printAllContacts() {
 	std::cout << ">>>YOUR PHONEBOOK<<<" << std::endl;
 	for (int i = 0; i < this->countContacts; i++) {
 		std::cout << std::setw(10) << i;
-		std::cout << "|" << std::setw(10) << this->getShortName(this->contacts[i].getFirstName);
-		std::cout << "|" << std::setw(10) << this->getShortName(this->contacts[i].getLastName);
-		std::cout << "|" << std::setw(10) << this->getShortName(this->contacts[i].getNickName);
+		std::cout << "|" << std::setw(10) << this->getShortName(this->contacts[i].getFirstName());
+		std::cout << "|" << std::setw(10) << this->getShortName(this->contacts[i].getLastName());
+		std::cout << "|" << std::setw(10) << this->getShortName(this->contacts[i].getNickName());
 	}
 }
 

@@ -1,5 +1,5 @@
 NAME	= myawesomephonebook
-FILES	= PhoneBook.cpp
+FILES	= PhoneBook.class.cpp Contact.class.cpp MyAwesomePhoneBook.cpp 
 OBJS	= $(FILES:.cpp=.o)
 FLAGS	= -Wall -Wextra -Werror
 GCCPP	= clang++
