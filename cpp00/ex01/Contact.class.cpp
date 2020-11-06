@@ -6,7 +6,7 @@
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 02:12:50 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/05 16:55:24 by memilio          ###   ########.fr       */
+/*   Updated: 2020/11/06 19:28:03 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,17 @@
 Contact::Contact() {}
 
 void				Contact::setContact(std::string* const& contact) {
-	if (sizeof(contact) != 11)
-		std::cerr << "Contact info is not full" << std::endl;
-	else {
-		this->firstName = contact[0];
-		this->lastName = contact[1];
-		this->nickName = contact[2];
-		this->login = contact[3];
-		this->postalAddress = contact[4];
-		this->emailAddress = contact[5];
-		this->phoneNumber = contact[6];
-		this->birthDate = contact[7];
-		this->favoriteMeal = contact[8];
-		this->underwearColor = contact[9];
-		this->darkestSecret = contact[10];
-	}
+	this->firstName = contact[0];
+	this->lastName = contact[1];
+	this->nickName = contact[2];
+	this->login = contact[3];
+	this->postalAddress = contact[4];
+	this->emailAddress = contact[5];
+	this->phoneNumber = contact[6];
+	this->birthDate = contact[7];
+	this->favoriteMeal = contact[8];
+	this->underwearColor = contact[9];
+	this->darkestSecret = contact[10];
 }
 
 std::string const&	Contact::getFirstName() {

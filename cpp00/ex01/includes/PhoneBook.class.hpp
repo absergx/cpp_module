@@ -6,7 +6,7 @@
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 01:50:14 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/05 17:46:09 by memilio          ###   ########.fr       */
+/*   Updated: 2020/11/06 19:00:30 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class PhoneBook {
 		int					countContacts;
 		void				printAllContacts();
 		bool				isBookFull();
+		std::string 		getShortName(std::string const& str);
 };
 
 #endif

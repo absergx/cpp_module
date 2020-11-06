@@ -6,7 +6,7 @@
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 02:04:20 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/05 17:45:45 by memilio          ###   ########.fr       */
+/*   Updated: 2020/11/06 18:57:35 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,5 @@
 # include <iomanip>
 # include "Contact.class.hpp"
 # include "PhoneBook.class.hpp"
-
-std::string getShortName(std::string const& str);
 
 #endif
