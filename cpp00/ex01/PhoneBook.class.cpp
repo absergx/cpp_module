@@ -6,7 +6,7 @@
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 02:09:45 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/06 19:48:30 by memilio          ###   ########.fr       */
+/*   Updated: 2020/11/07 14:20:51 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ void	PhoneBook::addContact() {
 }
 
 void	PhoneBook::serchContact() {
-	int		contactIndex = 0;
+	int			contactIndex = -1;
+	std::string	inputIndex;
 
 	if (this->countContacts == 0) {
 		std::cerr << "Your PhoneBook is empty." << std::endl;
@@ -61,12 +62,16 @@ void	PhoneBook::serchContact() {
 	this->printAllContacts();
 	for (int i = 0; i < 3; i++) {
 		std::cout << "Enter an index to show full contact info (" << i + 1 << "/3): ";
-		std::cin >> contactIndex;
-		if (contactIndex < 0 || contactIndex >= this->countContacts)
-			std::cerr << "Wrong index, try again" << std::endl;
-		else {
+		std::getline(std::cin, inputIndex);
+		try {
+			contactIndex = std::stoi(inputIndex);
+			if (contactIndex < 0 || contactIndex >= this->countContacts)
+				throw std::exception();
 			this->contacts[contactIndex].printAllValues();
 			break ;
+		}
+		catch (std::exception &err) {
+			std::cerr << "Wrong index, try again between 0 and " << this->countContacts - 1 << std::endl;
 		}
 	}
 }
