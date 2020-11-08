@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 13:09:39 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/08 17:26:06 by memilio          ###   ########.fr       */
+/*   Created: 2020/11/08 14:32:07 by memilio           #+#    #+#             */
+/*   Updated: 2020/11/08 17:30:30 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"	
+#include "ZombieHorde.hpp"
 
-		Zombie::Zombie(std::string name, std::string type) {
-	this->zombieName = name;
-	this->zombieType = type;
+ZombieHorde::ZombieHorde(int count) {
+	this->zombieCount = count;
+	this->horde = new Zombie[count];
 }
 
-		Zombie::~Zombie() {
-	return ;
+ZombieHorde::~ZombieHorde() {
+	std::cout << "Don’t you get it? We ARE The Walking Dead!" << std::endl;
+	delete [] this->horde;
 }
 
-void	Zombie::announce() {
-	std::cout << "<" << this->zombieName << " " << "(" << this->zombieType
-		<< ")>" << " Braiiiiiiinnnssss..." << std::endl;
+void	ZombieHorde::announce() {
+	for (int i = 0; i < this->zombieCount; i++) {
+		this->horde[i].announce();
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 13:38:33 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/08 13:44:59 by memilio          ###   ########.fr       */
+/*   Updated: 2020/11/08 14:19:40 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ const std::string typeValues[4] = {
 }
 
 void		ZombieEvent::setZombieType() {
-	std::srand(std::time(nullptr));
+	std::srand(std::time(0));
 	this->zombieType = typeValues[std::rand() % 4];
 }
 

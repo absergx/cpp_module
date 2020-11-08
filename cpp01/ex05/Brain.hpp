@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 13:09:39 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/08 17:26:06 by memilio          ###   ########.fr       */
+/*   Created: 2020/11/08 17:40:29 by memilio           #+#    #+#             */
+/*   Updated: 2020/11/08 18:06:06 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"	
+#include <string>
+#include <iostream>
 
-		Zombie::Zombie(std::string name, std::string type) {
-	this->zombieName = name;
-	this->zombieType = type;
-}
-
-		Zombie::~Zombie() {
-	return ;
-}
-
-void	Zombie::announce() {
-	std::cout << "<" << this->zombieName << " " << "(" << this->zombieType
-		<< ")>" << " Braiiiiiiinnnssss..." << std::endl;
-}
+class Brain {
+	public:
+					Brain();
+					~Brain();
+		std::string	identify();
+	private:
+		int			weight;
+};

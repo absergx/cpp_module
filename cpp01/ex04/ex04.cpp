@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   ex04.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 13:09:39 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/08 17:26:06 by memilio          ###   ########.fr       */
+/*   Created: 2020/11/08 17:35:03 by memilio           #+#    #+#             */
+/*   Updated: 2020/11/08 17:38:56 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"	
+#include <string>
+#include <iostream>
 
-		Zombie::Zombie(std::string name, std::string type) {
-	this->zombieName = name;
-	this->zombieType = type;
-}
+int	main() {
+	std::string	str = "HI THIS IS BRAIN";
+	std::string* strPtr = &str;
+	std::string& strRef = str;
 
-		Zombie::~Zombie() {
-	return ;
-}
-
-void	Zombie::announce() {
-	std::cout << "<" << this->zombieName << " " << "(" << this->zombieType
-		<< ")>" << " Braiiiiiiinnnssss..." << std::endl;
+	std::cout << *strPtr << " - display using the pointer" << std::endl;
+	std::cout << strRef << " - display using the reference" << std::endl;
+	return 0;
 }

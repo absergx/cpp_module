@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 13:09:39 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/08 17:26:06 by memilio          ###   ########.fr       */
+/*   Created: 2020/11/08 14:28:03 by memilio           #+#    #+#             */
+/*   Updated: 2020/11/08 17:41:42 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"	
+#include <string>
+#include <iostream>
 
-		Zombie::Zombie(std::string name, std::string type) {
-	this->zombieName = name;
-	this->zombieType = type;
-}
-
-		Zombie::~Zombie() {
-	return ;
-}
-
-void	Zombie::announce() {
-	std::cout << "<" << this->zombieName << " " << "(" << this->zombieType
-		<< ")>" << " Braiiiiiiinnnssss..." << std::endl;
-}
+class Zombie {
+	public:
+					Zombie();
+					~Zombie();
+		void		announce();
+	private:
+		std::string	zombieName;
+		std::string	zombieType;
+};

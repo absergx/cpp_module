@@ -1,16 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 13:16:04 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/08 14:19:57 by memilio          ###   ########.fr       */
+/*   Created: 2020/11/08 14:27:49 by memilio           #+#    #+#             */
+/*   Updated: 2020/11/08 17:33:46 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ZombieEvent.hpp"
+#include "Zombie.hpp"
+
+const std::string typeValues[4] = {
+	"Homer",
+	"Hawking",
+	"Ninja",
+	"T-800s"
+};
 
 const std::string nameValues[6] = {
 	"Lewis Brian Hopkin Jones",
@@ -21,21 +28,17 @@ const std::string nameValues[6] = {
 	"Amy Jade Winehouse"
 };
 
-void	randomChump() {
-	std::srand(std::time(0)); //use current time as seed for random generator
-	Zombie* randomZombie = new Zombie(nameValues[std::rand() % 6], "Simple zombie");
-	randomZombie->announce();
-	delete randomZombie;
+		Zombie::Zombie() {
+	this->zombieName = nameValues[std::rand() % 6];
+	this->zombieType = typeValues[std::rand() % 4];
 }
 
-int		main() {
-	ZombieEvent event;
-	event.setZombieType();
-	Zombie* onHeap = event.newZombie("Heappie");
-	onHeap->announce();
-	delete onHeap;
-	Zombie onStack("Shawn", "Stack Eater");
-	onStack.announce();
-	randomChump();
-	return 0;
+		Zombie::~Zombie() {
+	std::cout << "If I come back as a zombie I’m eating you first! ("
+		<< this->zombieName << ")" << std::endl;
+}
+
+void	Zombie::announce() {
+	std::cout << "<" << this->zombieName << " " << "(" << this->zombieType
+		<< ")>" << " Braiiiiiiinnnssss..." << std::endl;
 }
