@@ -6,12 +6,15 @@
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 14:28:03 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/08 17:41:42 by memilio          ###   ########.fr       */
+/*   Updated: 2020/11/09 16:24:59 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
+#ifndef ZOMBIE_H
+# define ZOMBIE_H
+
+# include <string>
+# include <iostream>
 
 class Zombie {
 	public:
@@ -22,3 +25,5 @@ class Zombie {
 		std::string	zombieName;
 		std::string	zombieType;
 };
+
+#endif

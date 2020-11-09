@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 17:59:42 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/09 15:49:18 by memilio          ###   ########.fr       */
+/*   Created: 2020/11/09 17:01:05 by memilio           #+#    #+#             */
+/*   Updated: 2020/11/09 17:04:39 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
-#include <sstream>
+#include "HumanB.hpp"
+#include <iostream>
 
-Brain::Brain() {
-	this->weight = std::rand();
+HumanB::HumanB(std::string name) : name(name) {}
+
+HumanB::~HumanB() {}
+
+void	HumanB::attack() {
+	std::cout << this->name << " attacks with his "
+		<< this->weapon->getType() << std::endl;
 }
 
-Brain::~Brain() {
-	return ;
-}
-
-std::string	Brain::identify() const {
-	std::ostringstream	stream;
-	std::string			addr;
-
-	stream << this;
-	addr = stream.str();
-	return addr;
+void	HumanB::setWeapon(Weapon& weapon) {
+	this->weapon = &weapon;
 }

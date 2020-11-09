@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   Replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 13:32:01 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/09 16:24:17 by memilio          ###   ########.fr       */
+/*   Created: 2020/11/09 18:07:19 by memilio           #+#    #+#             */
+/*   Updated: 2020/11/09 18:30:06 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIEEVENT_H
-# define ZOMBIEEVENT_H
+#ifndef REPLACE_H
+# define REPLACE_H
 
-# include "Zombie.hpp"
+# include <string>
+# include <iostream>
+# include <fstream>
 
-class ZombieEvent {
+class Replace {
 	public:
-					ZombieEvent();
-					~ZombieEvent();
-		Zombie*		newZombie(std::string name);
-		void		setZombieType();
+						Replace();
+						~Replace();
+		void			setData(std::string& fileName, std::string& toReplace,
+								std::string& withReplace);
+		bool			validate();
+		void			magic();
 	private:
-		std::string	zombieType;
+		std::ifstream	file;
+		std::string		fileName;
+		std::string		toReplace;
+		std::string		withReplace;
 };
 
 #endif

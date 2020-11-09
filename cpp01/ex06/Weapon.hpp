@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 17:59:42 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/09 15:49:18 by memilio          ###   ########.fr       */
+/*   Created: 2020/11/09 16:20:48 by memilio           #+#    #+#             */
+/*   Updated: 2020/11/09 16:44:39 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
-#include <sstream>
+#ifndef WEAPON_H
+# define WEAPON_H
 
-Brain::Brain() {
-	this->weight = std::rand();
-}
+# include <string>
 
-Brain::~Brain() {
-	return ;
-}
+class Weapon {
+	public:
+							Weapon(std::string type);
+							~Weapon();
+		std::string const&	getType();
+		void				setType(std::string type);
+	private:
+		std::string			type;
+};
 
-std::string	Brain::identify() const {
-	std::ostringstream	stream;
-	std::string			addr;
-
-	stream << this;
-	addr = stream.str();
-	return addr;
-}
+#endif

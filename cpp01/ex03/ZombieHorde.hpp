@@ -6,11 +6,14 @@
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 14:28:17 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/08 14:31:58 by memilio          ###   ########.fr       */
+/*   Updated: 2020/11/09 16:24:56 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIEHORDE_H
+# define ZOMBIEHORDE_H
+
+# include "Zombie.hpp"
 
 class ZombieHorde {
 	public:
@@ -21,3 +24,5 @@ class ZombieHorde {
 		int			zombieCount;
 		Zombie*		horde;
 };
+
+#endif

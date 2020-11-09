@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 17:59:42 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/09 15:49:18 by memilio          ###   ########.fr       */
+/*   Created: 2020/11/09 17:06:02 by memilio           #+#    #+#             */
+/*   Updated: 2020/11/09 17:06:40 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
-#include <sstream>
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-Brain::Brain() {
-	this->weight = std::rand();
-}
-
-Brain::~Brain() {
-	return ;
-}
-
-std::string	Brain::identify() const {
-	std::ostringstream	stream;
-	std::string			addr;
-
-	stream << this;
-	addr = stream.str();
-	return addr;
+int	main() {
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+	return 0;
 }
