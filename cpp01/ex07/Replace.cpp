@@ -47,10 +47,12 @@ void	Replace::magic() {
 	std::string		tmpStr;
 
 	while (std::getline(file, tmpStr)) {
-		if (tmpStr == this->toReplace)
-			outFile << this->withReplace << std::endl;
-		else
-			outFile << tmpStr << std::endl;
+		std::string::size_type pos = 0;
+		while ((pos = tmpStr.find(this->toReplace, pos)) != std::string::npos) {
+			tmpStr.replace(pos, this->toReplace.length(), this->withReplace);
+			pos += this->withReplace.length();
+		}
+		outFile << tmpStr << std::endl;
 	}
 	outFile.close();
 }
