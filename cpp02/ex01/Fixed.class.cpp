@@ -6,7 +6,7 @@
 /*   By: memilio <memilio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 19:20:35 by memilio           #+#    #+#             */
-/*   Updated: 2020/11/14 15:41:02 by memilio          ###   ########.fr       */
+/*   Updated: 2020/11/14 15:45:00 by memilio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void		Fixed::setRawBits(int const raw) {
 Fixed		&Fixed::operator=(const Fixed &num) {
 	std::cout << "Assignation operator called" << std::endl;
 	if (this != &num)
-		fixedValue = num.getRawBits();
+		fixedValue = num.fixedValue;
 	return *this;
 }
 
