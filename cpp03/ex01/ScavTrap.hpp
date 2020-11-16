@@ -13,6 +13,15 @@ public:
 				ScavTrap(const std::string &);
 				ScavTrap(const ScavTrap &);
 				~ScavTrap();
+	ScavTrap&   operator=(const ScavTrap&);
+	void 		rangedAttack(std::string const & target);
+	void 		meleeAttack(std::string const & target);
+	void 		takeDamage(unsigned int amount);
+	void 		beRepaired(unsigned int amount);
+	void        challengeNewcomer();
+	std::string getName() const;
+	int         getMeleeAttackDamage() const;
+	int         getRangedAttackDamage() const;
 private:
 	int         _hitPoints;
 	int         _maxHitPoints;
@@ -23,6 +32,7 @@ private:
 	int         _rangedAttackDamage;
 	int         _armorDamageReduction;
 	std::string _name;
+	const static std::string _randomChallengeValues[5];
 };
 
 #endif //CPP03_SCAVTRAP_HPP

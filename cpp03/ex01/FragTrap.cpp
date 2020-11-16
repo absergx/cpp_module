@@ -21,16 +21,16 @@ FragTrap::FragTrap(const std::string & name) : _name(name) {
 	_rangedAttackDamage = 20;
 	_armorDamageReduction = 5;
 	(void)_maxEnergyPoints;
-	std::cout << "Default constructor for " << this->_name << " called" << std::endl;
+	std::cout << "Default constructor FR4G-TP for " << this->_name << " called" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &newFragTrap) {
 	*this = newFragTrap;
-	std::cout << "Copy constructor for " << this->_name << " called" << std::endl;
+	std::cout << "Copy constructor FR4G-TP for " << this->_name << " called" << std::endl;
 }
 
 FragTrap::~FragTrap() {
-	std::cout << "Destructor for " << this->_name << " called" << std::endl;
+	std::cout << "Destructor FR4G-TP for " << this->_name << " called" << std::endl;
 }
 
 FragTrap&   FragTrap::operator=(const FragTrap &newFragTrap) {

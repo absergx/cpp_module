@@ -12,25 +12,17 @@ const std::string FragTrap::_randomAttackValues[5] = {
 		"laser inferno attack"
 };
 
-FragTrap::FragTrap(const std::string & name) : _name(name) {
-	_hitPoints = 100;
-	_maxHitPoints = 100;
-	_energyPoints = 100;
-	_level = 1;
-	_meleeAttackDamage = 30;
-	_rangedAttackDamage = 20;
-	_armorDamageReduction = 5;
-	(void)_maxEnergyPoints;
-	std::cout << "Default constructor for " << this->_name << " called" << std::endl;
+FragTrap::FragTrap(const std::string &name) : ClapTrap(name, 100, 100, 100, 100, 30, 20, 5) {
+	std::cout << "Default constructor FR4G-TP for " << this->_name << " called" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &newFragTrap) {
+FragTrap::FragTrap(const FragTrap &newFragTrap) : ClapTrap(newFragTrap) {
 	*this = newFragTrap;
-	std::cout << "Copy constructor for " << this->_name << " called" << std::endl;
+	std::cout << "Copy constructor FR4G-TP for " << this->_name << " called" << std::endl;
 }
 
 FragTrap::~FragTrap() {
-	std::cout << "Destructor for " << this->_name << " called" << std::endl;
+	std::cout << "Destructor FR4G-TP for " << this->_name << " called" << std::endl;
 }
 
 FragTrap&   FragTrap::operator=(const FragTrap &newFragTrap) {
@@ -59,23 +51,15 @@ void    FragTrap::meleeAttack(const std::string &target) {
 
 void    FragTrap::takeDamage(unsigned int amount) {
 	amount -= this->_armorDamageReduction;
-	if ((int)amount > 0) {
-		std::cout << "FR4G-TP " << this->_name << " takes "
+	std::cout << "FR4G-TP " << this->_name << " takes "
 			<< amount << " damage!" << std::endl;
-		this->_hitPoints -= (int) amount;
-	} else
-		std::cout << "FR4G-TP " << this->_name
-			<< " avoid damage with armor" << std::endl;
-	if (this->_hitPoints <= 0)
-		this->_hitPoints = 1;
-	std::cout << "Now his hit points is " << this->_hitPoints << std::endl;
+	ClapTrap::takeDamage(amount);
 }
 
 void    FragTrap::beRepaired(unsigned int amount) {
 	std::cout << "FR4G-TP " << this->_name << " is being repaired by "
 		<< amount << std::endl;
-	this->_hitPoints = ((int)amount + this->_hitPoints >= this->_maxHitPoints) ? this->_maxHitPoints : (this->_hitPoints + (int)amount);
-	std::cout << "Now his hit points is " << this->_hitPoints << std::endl;
+	ClapTrap::beRepaired(amount);
 }
 
 void    FragTrap::vaulthunterDotExe(const std::string &target) {
@@ -88,8 +72,3 @@ void    FragTrap::vaulthunterDotExe(const std::string &target) {
 			<< target << std::endl;
 	}
 }
-
-std::string FragTrap::getName() const {return this->_name;}
-
-int         FragTrap::getMeleeAttackDamage() const {return this->_meleeAttackDamage;}
-int         FragTrap::getRangedAttackDamage() const {return this->_rangedAttackDamage;}
