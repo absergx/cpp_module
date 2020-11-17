@@ -5,21 +5,24 @@
 #include "NinjaTrap.hpp"
 
 const std::string NinjaTrap::randomSpecialAttacks[5] = {
-		// TODO write this
-		"1",
-		"2",
-		"3",
-		"4",
-		"5"
+		"Water Shuriken",
+		"Shadow Sneak",
+		"Hydro Pump",
+		"Substitute",
+		"Secret Ninja Attack"
 };
 
-				NinjaTrap::NinjaTrap(const std::string &name) : ClapTrap(name, 60, 60, 120, 120, 60, 5, 0){
+				NinjaTrap::NinjaTrap(const std::string &name) : ClapTrap(name, 60, 60, 120, 120, 60, 5, 0) {
 	std::cout << "Default constructor NinjaTrap for " << this->_name << " called" << std::endl;
 }
 
 				NinjaTrap::NinjaTrap(const NinjaTrap &newNinjaTrap) : ClapTrap(newNinjaTrap) {
 	*this = newNinjaTrap;
 	std::cout << "Copy constructor NinjaTrap for " << this->_name << " called" << std::endl;
+}
+
+NinjaTrap::~NinjaTrap() {
+	std::cout << "Destructor NinjaTrap for " << this->_name << " called" << std::endl;
 }
 
 NinjaTrap&      NinjaTrap::operator=(const NinjaTrap &newNinjaTrap) {

@@ -2,64 +2,88 @@
 // Created by Meldred Emilio on 11/16/20.
 //
 
-// TODO rewrite this main
-
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
-void	ranged_attack(ClapTrap &attacking, ClapTrap &attacked)
-{
-	std::cout << "--- Ranged attack! ---" << std::endl;
-	attacking.rangedAttack(attacked.getName());
-	attacked.takeDamage(attacking.getRangedAttackDamage());
-	std::cout << std::endl;
+void meleeAttack(FragTrap &attacker, FragTrap &defender) {
+	std::cout << "Melee attack! " << attacker.getName() << " hits " << defender.getName() << std::endl;
+	attacker.meleeAttack(defender.getName());
+	defender.takeDamage(attacker.getMeleeAttackDamage());
 }
 
-void	melee_attack(ClapTrap &attacking, ClapTrap &attacked)
-{
-	std::cout << "--- Melee attack! ---" << std::endl;
-	attacking.meleeAttack(attacked.getName());
-	attacked.takeDamage(attacking.getMeleeAttackDamage());
-	std::cout << std::endl;
+void meleeAttack(FragTrap &attacker, ScavTrap &defender) {
+	std::cout << "Melee attack! " << attacker.getName() << " hits " << defender.getName() << std::endl;
+	attacker.meleeAttack(defender.getName());
+	defender.takeDamage(attacker.getMeleeAttackDamage());
 }
 
-void	random_attack(FragTrap &attacking, ClapTrap &attacked)
-{
-	std::cout << "--- Random attack! ---" << std::endl;
-	attacking.vaulthunterDotExe(attacked.getName());
-	attacked.takeDamage(rand() % 30);
-	std::cout << std::endl;
+void meleeAttack(ScavTrap &attacker, FragTrap &defender) {
+	std::cout << "Melee attack! " << attacker.getName() << " hits " << defender.getName() << std::endl;
+	attacker.meleeAttack(defender.getName());
+	defender.takeDamage(attacker.getMeleeAttackDamage());
 }
 
-void	random_challenge(ScavTrap &scav_trap)
-{
-	std::cout << "--- Random challenge! ---" << std::endl;
-	scav_trap.challengeNewcomer();
-	std::cout << std::endl;
+void meleeAttack(ScavTrap &attacker, ScavTrap &defender) {
+	std::cout << "Melee attack! " << attacker.getName() << " hits " << defender.getName() << std::endl;
+	attacker.meleeAttack(defender.getName());
+	defender.takeDamage(attacker.getMeleeAttackDamage());
 }
 
-int		main()
-{
-	srand(time(nullptr));
+void rangedAttack(FragTrap &attacker, FragTrap &defender) {
+	std::cout << "Ranged attack! " << attacker.getName() << " hits " << defender.getName() << std::endl;
+	attacker.rangedAttack(defender.getName());
+	defender.takeDamage(attacker.getRangedAttackDamage());
+}
 
-	FragTrap	claptrap("claptrap");
-	ScavTrap	gortys("gortys");
-	FragTrap	dumpy("dumpy");
-	ScavTrap	glory("glory");
+void rangedAttack(FragTrap &attacker, ScavTrap &defender) {
+	std::cout << "Ranged attack! " << attacker.getName() << " hits " << defender.getName() << std::endl;
+	attacker.rangedAttack(defender.getName());
+	defender.takeDamage(attacker.getRangedAttackDamage());
+}
 
-//	ranged_attack(claptrap, gortys);
-//	melee_attack(glory, claptrap);
+void rangedAttack(ScavTrap &attacker, FragTrap &defender) {
+	std::cout << "Ranged attack! " << attacker.getName() << " hits " << defender.getName() << std::endl;
+	attacker.rangedAttack(defender.getName());
+	defender.takeDamage(attacker.getRangedAttackDamage());
+}
 
-//	random_challenge(glory);
-//	melee_attack(dumpy, claptrap);
-//
-	random_attack(claptrap, dumpy);
-	random_challenge(glory);
-//
-//	ranged_attack(gortys, glory);
-//	claptrap.be_repaired(5);
-//
-	ranged_attack(claptrap, dumpy);
-//	glory.be_repaired(13);
+void rangedAttack(ScavTrap &attacker, ScavTrap &defender) {
+	std::cout << "Ranged attack! " << attacker.getName() << " hits " << defender.getName() << std::endl;
+	attacker.rangedAttack(defender.getName());
+	defender.takeDamage(attacker.getRangedAttackDamage());
+}
+
+void randomAttack(FragTrap &attacker, FragTrap &defender) {
+	std::cout << "Random attack! " << attacker.getName() << " hits " << defender.getName() << std::endl;
+	attacker.vaulthunterDotExe(defender.getName());
+	defender.takeDamage(std::rand() % 30);
+}
+
+void randomChallenge(ScavTrap &attacker) {
+	std::cout << "Random challenge! " << attacker.getName() << std::endl;
+	attacker.challengeNewcomer();
+}
+
+int main() {
+	FragTrap biba("Optimus Prime");
+	FragTrap boba("Bumblebee");
+	ScavTrap kuba("Megatron");
+	ScavTrap keba("Starscream");
+
+	meleeAttack(biba, kuba);
+	rangedAttack(keba, boba);
+	meleeAttack(biba, boba);
+	rangedAttack(kuba, keba);
+	meleeAttack(keba, biba);
+	rangedAttack(keba, kuba);
+	randomAttack(boba, biba);
+	randomAttack(biba, boba);
+	randomChallenge(keba);
+	randomChallenge(kuba);
+	biba.beRepaired(15);
+	boba.beRepaired(30);
+	kuba.beRepaired(10);
+	keba.beRepaired(20);
+	return 0;
 }

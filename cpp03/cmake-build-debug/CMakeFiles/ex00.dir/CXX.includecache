@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
+/Users/memilio/homerun/cpp_module/cpp03/ex00/FragTrap.cpp
+FragTrap.hpp
+/Users/memilio/homerun/cpp_module/cpp03/ex00/FragTrap.hpp
+
 /Users/memilio/homerun/cpp_module/cpp03/ex00/FragTrap.hpp
 string
 -
 iostream
 -
-
-/Users/memilio/homerun/cpp_module/cpp03/ex00/main.cpp
-FragTrap.hpp
-/Users/memilio/homerun/cpp_module/cpp03/ex00/FragTrap.hpp
 
