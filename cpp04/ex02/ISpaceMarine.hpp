@@ -5,6 +5,8 @@
 #ifndef CPP04_ISPACEMARINE_HPP
 #define CPP04_ISPACEMARINE_HPP
 
+#include <iostream>
+
 class ISpaceMarine
 {
 public:

@@ -8,6 +8,7 @@
 #include <string>
 #include <iostream>
 #include "ISpaceMarine.hpp"
+#include "ISquad.hpp"
 
 class Squad : public ISquad {
 private:
@@ -20,7 +21,7 @@ public:
 	Squad&          operator=(const Squad &);
 	int             getCount() const;
 	ISpaceMarine*   getUnit(int n) const;
-	int             push(ISpaceMarine *) const;
+	int             push(ISpaceMarine *);
 };
 
 #endif //CPP04_SQUAD_HPP

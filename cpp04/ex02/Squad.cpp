@@ -32,8 +32,24 @@ ISpaceMarine*   Squad::getUnit(int n) const{
 	return this->_squad[n];
 }
 
-int             Squad::push(ISpaceMarine *newISpaceMarine) const {
+int             Squad::push(ISpaceMarine *newISpaceMarine) {
 	if (!newISpaceMarine)
 		return this->_count;
-
+	if (this->_squad) {
+		for (int i = 0; i < this->_count; i++)
+			if (this->_squad[i] == newISpaceMarine)
+				return this->_count;
+		ISpaceMarine **newSquad = new ISpaceMarine*[this->_count + 1];
+		for (int i = 0; i < this->_count; i++)
+			newSquad[i] = this->_squad[i];
+		delete [] this->_squad;
+		this->_squad = newSquad;
+		this->_squad[this->_count] = newISpaceMarine;
+		this->_count += 1;
+	} else {
+		this->_count = 1;
+		this->_squad = new ISpaceMarine*[this->_count];
+		this->_squad[this->_count - 1] = newISpaceMarine;
+	}
+	return this->_count;
 }

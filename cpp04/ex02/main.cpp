@@ -2,6 +2,10 @@
 // Created by Meldred Emilio on 11/18/20.
 //
 
+#include "AssaultTerminator.hpp"
+#include "Squad.hpp"
+#include "TacticalMarine.hpp"
+
 int main()
 {
 	ISpaceMarine* bob = new TacticalMarine;
