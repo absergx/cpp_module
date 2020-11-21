@@ -1,11 +1,15 @@
+//
+// Created by Meldred Emilio on 11/20/20.
+//
+
 #include "Bureaucrat.hpp"
 
 int main() {
 	Bureaucrat bob("Bob", 100);
 	std::cout << bob << std::endl;
-	bob.incGrade();
+	bob.incrementGrade();
 	std::cout << bob << std::endl;
-	bob.decGrade();
+	bob.decrementGrade();
 	std::cout << bob << std::endl;
 	try {
 		Bureaucrat ted("Ted", 150);

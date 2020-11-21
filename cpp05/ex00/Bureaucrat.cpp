@@ -1,3 +1,9 @@
+//
+// Created by Meldred Emilio on 11/20/20.
+//
+
+#include "Bureaucrat.hpp"
+
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(const std::string & name, int grade) : _name(name), _grade(grade) {
@@ -33,13 +39,13 @@ std::string const &		Bureaucrat::getName() const {return this->_name;}
 
 int						Bureaucrat::getGrade() const {return this->_grade;}
 
-void					Bureaucrat::incGrade() {
+void					Bureaucrat::incrementGrade() {
 	this->_grade--;
 	if (this->_grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 }
 
-void					Bureaucrat::decGrade() {
+void					Bureaucrat::decrementGrade() {
 	this->_grade++;
 	if (this->_grade > 150)
 		throw Bureaucrat::GradeTooLowException();
@@ -47,7 +53,6 @@ void					Bureaucrat::decGrade() {
 
 std::ostream	&operator<<(std::ostream &os, Bureaucrat const & bureaucrat) {
 	os << "<" << bureaucrat.getName() << ">, bureaucrat grade <"
-		<< bureaucrat.getGrade() << ">";
+	   << bureaucrat.getGrade() << ">";
 	return os;
 }
- 
