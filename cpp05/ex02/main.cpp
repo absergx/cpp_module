@@ -3,9 +3,11 @@
 //
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main() {
 	Bureaucrat bob("Bob", 100);
+	Bureaucrat boss("Boss", 1);
 	std::cout << bob << std::endl;
 	bob.incrementGrade();
 	std::cout << bob << std::endl;
@@ -58,5 +60,18 @@ int main() {
 	} catch (std::exception const &e) {
 		std::cerr << e.what() << std::endl;
 	}
+	Bureaucrat supervisor("Supervisor", 1);
+	std::cout << supervisor << std::endl;
+
+	Form *shrub = new ShrubberyCreationForm("home");
+	std::cout << *shrub << std::endl;
+	shrub->beSigned(supervisor);
+	std::cout << *shrub << std::endl;
+	try {
+		shrub->execute(supervisor);
+	} catch (std::exception const &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	delete shrub;
 	return 0;
 }

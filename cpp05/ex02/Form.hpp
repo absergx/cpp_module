@@ -30,11 +30,15 @@ public:
 	class FormIsAlreadySignedException: public std::exception {
 		virtual const char* what() const throw();
 	};
+	class FormIsNotSignedException: public std::exception {
+		virtual const char* what() const throw();
+	};
 	bool                isSigned() const;
 	std::string const & getName() const;
 	int                 getGradeToSign() const;
 	int                 getGradeToExecute() const;
 	void                beSigned(Bureaucrat const &bureaucrat);
+	virtual void        execute(Bureaucrat const &executor) const;
 };
 
 std::ostream        &operator<<(std::ostream &os, Form const &form);
