@@ -6,6 +6,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main() {
 	std::srand(time(nullptr));
@@ -89,5 +90,20 @@ int main() {
 	president->execute(supervisor);
 	supervisor.executeForm(*president);
 	delete president;
+	Intern intern;
+	try {
+		Form *random = intern.makeForm("Shrubbery Creation", "Highway");
+		std::cout << *random << std::endl;
+		delete random;
+	} catch (std::exception const &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	try {
+		Form *form = intern.makeForm("Random form", "Skynet");
+		std::cout << *form << std::endl;
+		delete form;
+	} catch (std::exception const &e) {
+		std::cerr << e.what() << std::endl;
+	}
 	return 0;
 }
