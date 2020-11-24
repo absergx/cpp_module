@@ -20,7 +20,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(oth
 		throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::~Bureaucrat() {}
+Bureaucrat::~Bureaucrat() {
+	std::cout << "destructor called" << std::endl;
+}
 
 Bureaucrat&		Bureaucrat::operator=(const Bureaucrat &other) {
 	this->_grade = other._grade;
