@@ -3,13 +3,7 @@
 //
 
 #include <string>
-#include <iostream>
-
-template <typename T>
-void 	iter(T *addr, size_t length, void (*f)(T const &data)) {
-	for (size_t i = 0; i < length; i++)
-		f(addr[i]);
-}
+#include "iter.hpp"
 
 template <typename T>
 void 	printing(T data) {
