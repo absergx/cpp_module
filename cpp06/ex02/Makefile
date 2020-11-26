@@ -1,4 +1,4 @@
-NAME	= serialization
+NAME	= identify
 FILES	= main.cpp
 OBJS	= $(FILES:.cpp=.o)
 FLAGS	= -Wall -Wextra -Werror
